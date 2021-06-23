@@ -3,17 +3,20 @@ package us.odm.distributedlocks;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.jdbc.lock.JdbcLockRegistry;
-import org.springframework.integration.support.locks.DefaultLockRegistry;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
 
+
+/*
+Controller based on example in youtube video from Josh Long. (https://www.youtube.com/watch?v=firwCHbC7-c)
+Spin up the application twice, with different expiration times. One of the calls will be blocked.
+ */
 @RestController
-public class Controller<Lock> {
+public class Controller {
 
     @Autowired
     private JdbcLockRegistry lockRegistry;
