@@ -1,0 +1,16 @@
+spring:
+  integration:
+    jdbc:
+      initialize-schema: always
+  jpa:
+    database: POSTGRESQL
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/orders
+    username: orders
+    password: password
+server:
+  port: 0
+
